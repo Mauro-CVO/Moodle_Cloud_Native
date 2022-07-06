@@ -4,7 +4,7 @@ services:
     image: docker.io/bitnami/moodle:4
     ports:
       - '80:8080'
-      - '443:8443'
+      - '3306:3306'
     environment:
       - MOODLE_DATABASE_TYPE=mysqli
       - MOODLE_DATABASE_HOST=10.0.0.7
@@ -15,8 +15,6 @@ services:
     volumes:
       - 'moodle_data:/bitnami/moodle'
       - 'moodledata_data:/bitnami/moodledata'
-    depends_on:
-      - 10.0.0.7
 volumes:
   moodle_data:
     driver: local
